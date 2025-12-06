@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para mi flancito de coco 🤍</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- Estilos CSS Integrados --- */
+
+        /* Variables de color para fácil edición */
+        :root {
+            --color-sobre: #f89a9c; /* Rosado principal del sobre */
+            --color-carta: #fff6eb; /* Beige claro para la carta */
+            --color-texto: #555;
+            --color-corazon: #e74c3c; /* Rojo para detalles */
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f7f7f7;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            /* Añadimos un pequeño margen superior para evitar que la carta desplegada toque el borde de la ventana */
+            padding-top: 50px; 
+            box-sizing: border-box;
+        }
+
+        /* --- Estilos del Sobre (Contenedor Principal) --- */
+
+        .sobre {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            /* Subimos ligeramente la posición del sobre para que la carta tenga espacio para desplegarse */
+            margin-bottom: 250px; 
+        }
+
+        /* La base del sobre (parte trasera) */
+        .base-sobre {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--color-sobre);
+            border-radius: 5px;
+        }
+
+        /* --- Estilos de la Tapa Superior (El Triángulo que se levanta) --- */
+
+        .tapa-superior {
+            position: absolute;
+            top: 0;
+            width: 0;
+            height: 0;
+            border-top: 100px solid var(--color-sobre);
+            border-right: 150px solid transparent;
+            border-left: 150px solid transparent;
+            transform-origin: top;
+            transition: transform 0.5s ease-in-out;
+            z-index: 2;
+        }
+
+        /* --- Estilos de la Carta Interior --- */
+
+        .carta {
+            position: absolute;
+            top: 0;
+            width: 90%;
+            /* AUMENTADO: Nueva altura para todo el texto */
+            height: 250%; 
+            margin: 5%;
+            background-color: var(--color-carta);
+            border-radius: 3px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            /* Posición inicial: oculta dentro del sobre */
+            transform: translateY(100px);
+            transition: transform 0.5s 0.2s ease-in-out;
+            z-index: 1;
+            color: var(--color-texto);
+            padding: 15px; 
+            box-sizing: border-box;
+            text-align: left; 
+        }
+
+        /* Contenido de la carta */
+        .contenido-carta {
+            opacity: 0;
+            transition: opacity 0.2s ease-in-out;
+        }
+
+        /* Título del sobre cerrado */
+        .titulo-cerrado {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2em;
+            font-weight: 700;
+            color: var(--color-corazon);
+            margin-top: 10px;
+            line-height: 1;
+            text-align: center; 
+        }
+
+        .subtitulo {
+            font-size: 0.9em;
+            color: var(--color-texto);
+            margin: 0;
+            text-align: center; 
+        }
+
+        /* Título de la carta abierta */
+        .titulo-abierto {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: var(--color-corazon);
+            margin-top: 5px;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        /* El mensaje de amor principal */
+        .mensaje {
+            margin: 5px 0 10px 0;
+            font-size: 1em;
+            line-height: 1.6;
+            font-family: 'Dancing Script', cursive;
+            text-align: justify;
+        }
+
+        /* El contador de tiempo */
+        .contador {
+            font-size: 0.9em;
+            background-color: #fce4ec;
+            border-radius: 5px;
+            padding: 10px;
+            border: 1px dashed var(--color-corazon);
+            line-height: 1.5;
+            text-align: center; 
+            margin-top: 15px;
+        }
+
+        /* La firma */
+        .firma {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8em;
+            margin-top: 20px;
+            color: var(--color-corazon);
+            text-align: right; 
+        }
+
+        /* --- LA MAGIA: Efecto Hover para Abrir el Sobre --- */
+
+        .sobre:hover .tapa-superior {
+            transform: rotateX(180deg);
+        }
+
+        .sobre:hover .carta {
+            /* AUMENTADO: Se desplaza más hacia arriba para mostrar todo el contenido */
+            transform: translateY(-250px); 
+        }
+
+        .sobre:hover .contenido-carta {
+            opacity: 1;
+            transition-delay: 0.4s;
+        }
+
+        .sobre:hover .titulo-cerrado {
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sobre" id="sobreTarjeta">
+
+        <div class="tapa-superior"></div>
+
+        <div class="carta">
+            <p class="titulo-cerrado">Para mi flancito de coco</p>
+            <p class="titulo-cerrado subtitulo">🤍</p>
+
+            <div class="contenido-carta">
+                <p class="titulo-abierto">Para mi flancito de coco:</p>
+
+                <p class="mensaje">
+                    Desde el día que te conocí, todo empezó a tener otro sentido.
+                    No sé si fue tu risa, tu forma de mirarme o cómo me hablas, pero desde ese momento supe que quería quedarme, sin importar lo que venga.
+                </p>
+                
+                <p class="mensaje">
+                    Contigo todo se siente diferente, más tranquilo, más real.
+                    No busco algo perfecto ni de película, busco eso que tenemos, algo que se construye despacito, sin apuro, pero con ganas de verdad.
+                </p>
+
+                <p class="mensaje">
+                    A veces no sé cómo explicarte lo que me haces sentir, solo sé que desde que llegaste, mis días son menos vacíos.
+                    Cada detalle, cada letra, cada plan que pienso… tiene un pedazo de ti.
+                </p>
+
+                <p class="mensaje">
+                    El 23 ya era mi número, pero ahora lleva tu nombre, tu risa y todo lo que me haces sentir.
+                </p>
+                
+                <p class="mensaje">
+                    No sé qué pasará más adelante, pero si me preguntas, quiero seguir con esto, contigo.
+                </p>
+
+                <p class="contador" id="contadorTiempo">
+                    Calculando el tiempo de nuestro amor...
+                </p>
+
+                <p class="firma">
+                    — Maurick
+                </p>
+            </div>
+        </div>
+
+        <div class="base-sobre"></div>
+    </div>
+
+    <audio id="musicaFondo" loop>
+        <source src="https://qu.ax/iPjOD.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <script>
+        // =======================================================
+        // 1. CONFIGURACIÓN DEL CONTADOR (29 de junio de 2025)
+        // =======================================================
+        const fechaInicio = new Date("June 29, 2025 00:00:00"); 
+
+        function actualizarContador() {
+            const ahora = new Date();
+            const diferencia = ahora - fechaInicio;
+
+            if (diferencia < 0) {
+                document.getElementById('contadorTiempo').innerHTML = "¡Nuestro amor está por comenzar!";
+                return;
+            }
+
+            const segundosTotales = Math.floor(diferencia / 1000);
+            
+            const segundos = segundosTotales % 60;
+            const minutosTotales = Math.floor(segundosTotales / 60);
+            const minutos = minutosTotales % 60;
+            const horasTotales = Math.floor(minutosTotales / 60);
+            const horas = horasTotales % 24;
+            const dias = Math.floor(horasTotales / 24);
+
+            const textoContador = `
+                Mi amor por ti comenzó hace...<br>
+                **${dias}** días, 
+                **${horas}** horas, 
+                **${minutos}** minutos, 
+                **${segundos}** segundos
+            `;
+
+            document.getElementById('contadorTiempo').innerHTML = textoContador;
+        }
+
+        // Inicia el contador y lo actualiza cada segundo
+        actualizarContador();
+        setInterval(actualizarContador, 1000);
+
+
+        // =======================================================
+        // 2. REPRODUCCIÓN DE MÚSICA
+        // =======================================================
+        const sobreTarjeta = document.getElementById('sobreTarjeta');
+        const musicaFondo = document.getElementById('musicaFondo');
+        let musicaReproducida = false;
+
+        // Reproduce la música al pasar el mouse sobre el sobre
+        sobreTarjeta.addEventListener('mouseenter', () => {
+            if (!musicaReproducida) {
+                musicaFondo.play()
+                    .then(() => {
+                        console.log("Música iniciada correctamente.");
+                        musicaReproducida = true;
+                    })
+                    .catch(error => {
+                        console.error("Error al intentar reproducir la música. Es posible que el navegador requiera una interacción del usuario antes de reproducir audio.");
+                    });
+            }
+        });
+        
+        // Intento de reproducción de audio al hacer click/tap para compatibilidad móvil
+        document.addEventListener('click', () => {
+            if (!musicaReproducida) {
+                musicaFondo.play()
+                    .then(() => {
+                        console.log("Música iniciada correctamente después de un click.");
+                        musicaReproducida = true;
+                    })
+                    .catch(error => {
+                        // Silenciosamente ignora el error si no puede reproducir
+                    });
+            }
+        }, { once: true }); 
+    </script>
+</body>
+</html>
