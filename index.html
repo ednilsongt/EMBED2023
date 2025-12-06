@@ -1,307 +1,91 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para mi flancito de coco 🤍</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    
-    <style>
-        /* --- Estilos CSS Integrados --- */
-
-        /* Variables de color para fácil edición */
-        :root {
-            --color-sobre: #f89a9c; /* Rosado principal del sobre */
-            --color-carta: #fff6eb; /* Beige claro para la carta */
-            --color-texto: #555;
-            --color-corazon: #e74c3c; /* Rojo para detalles */
-        }
-
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-color: #f7f7f7;
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            /* Añadimos un pequeño margen superior para evitar que la carta desplegada toque el borde de la ventana */
-            padding-top: 50px; 
-            box-sizing: border-box;
-        }
-
-        /* --- Estilos del Sobre (Contenedor Principal) --- */
-
-        .sobre {
-            position: relative;
-            width: 300px;
-            height: 200px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
-            /* Subimos ligeramente la posición del sobre para que la carta tenga espacio para desplegarse */
-            margin-bottom: 250px; 
-        }
-
-        /* La base del sobre (parte trasera) */
-        .base-sobre {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            height: 100%;
-            background-color: var(--color-sobre);
-            border-radius: 5px;
-        }
-
-        /* --- Estilos de la Tapa Superior (El Triángulo que se levanta) --- */
-
-        .tapa-superior {
-            position: absolute;
-            top: 0;
-            width: 0;
-            height: 0;
-            border-top: 100px solid var(--color-sobre);
-            border-right: 150px solid transparent;
-            border-left: 150px solid transparent;
-            transform-origin: top;
-            transition: transform 0.5s ease-in-out;
-            z-index: 2;
-        }
-
-        /* --- Estilos de la Carta Interior --- */
-
-        .carta {
-            position: absolute;
-            top: 0;
-            width: 90%;
-            /* AUMENTADO: Nueva altura para todo el texto */
-            height: 250%; 
-            margin: 5%;
-            background-color: var(--color-carta);
-            border-radius: 3px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            /* Posición inicial: oculta dentro del sobre */
-            transform: translateY(100px);
-            transition: transform 0.5s 0.2s ease-in-out;
-            z-index: 1;
-            color: var(--color-texto);
-            padding: 15px; 
-            box-sizing: border-box;
-            text-align: left; 
-        }
-
-        /* Contenido de la carta */
-        .contenido-carta {
-            opacity: 0;
-            transition: opacity 0.2s ease-in-out;
-        }
-
-        /* Título del sobre cerrado */
-        .titulo-cerrado {
-            font-family: 'Dancing Script', cursive;
-            font-size: 2em;
-            font-weight: 700;
-            color: var(--color-corazon);
-            margin-top: 10px;
-            line-height: 1;
-            text-align: center; 
-        }
-
-        .subtitulo {
-            font-size: 0.9em;
-            color: var(--color-texto);
-            margin: 0;
-            text-align: center; 
-        }
-
-        /* Título de la carta abierta */
-        .titulo-abierto {
-            font-size: 1.4em;
-            font-weight: 700;
-            color: var(--color-corazon);
-            margin-top: 5px;
-            font-family: 'Dancing Script', cursive;
-        }
-
-        /* El mensaje de amor principal */
-        .mensaje {
-            margin: 5px 0 10px 0;
-            font-size: 1em;
-            line-height: 1.6;
-            font-family: 'Dancing Script', cursive;
-            text-align: justify;
-        }
-
-        /* El contador de tiempo */
-        .contador {
-            font-size: 0.9em;
-            background-color: #fce4ec;
-            border-radius: 5px;
-            padding: 10px;
-            border: 1px dashed var(--color-corazon);
-            line-height: 1.5;
-            text-align: center; 
-            margin-top: 15px;
-        }
-
-        /* La firma */
-        .firma {
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.8em;
-            margin-top: 20px;
-            color: var(--color-corazon);
-            text-align: right; 
-        }
-
-        /* --- LA MAGIA: Efecto Hover para Abrir el Sobre --- */
-
-        .sobre:hover .tapa-superior {
-            transform: rotateX(180deg);
-        }
-
-        .sobre:hover .carta {
-            /* AUMENTADO: Se desplaza más hacia arriba para mostrar todo el contenido */
-            transform: translateY(-250px); 
-        }
-
-        .sobre:hover .contenido-carta {
-            opacity: 1;
-            transition-delay: 0.4s;
-        }
-
-        .sobre:hover .titulo-cerrado {
-            opacity: 0;
-            transition: opacity 0.2s;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TRAP ARGENTINO 24/7 - EN VIVO</title>
+  <style>
+    body,html{margin:0;height:100%;background:#000;overflow:hidden;font-family:Arial,sans-serif;position:relative;}
+    video{width:100vw;height:100vh;object-fit:contain;background:#000;}
+    .live{position:absolute;top:15px;left:15px;background:#c00;color:#fff;padding:10px 25px;border-radius:50px;font-weight:bold;z-index:10;animation:p 2s infinite;letter-spacing:1px;}
+    @keyframes p{0%,100%{opacity:0.75}50%{opacity:1}}
+    .clock,.views,.title{position:absolute;background:rgba(0,0,0,0.65);color:#fff;padding:10px 18px;border-radius:8px;z-index:10;backdrop-filter:blur(6px);}
+    .clock{top:15px;right:15px;font-size:20px;}
+    .views{bottom:15px;right:15px;font-size:18px;}
+    .title{bottom:15px;left:15px;font-size:18px;max-width:80%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    #playBtn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#c00;color:#fff;font-size:36px;padding:30px 70px;border:none;border-radius:30px;cursor:pointer;z-index:100;box-shadow:0 15px 50px rgba(0,0,0,0.8);animation:pulse 2s infinite;}
+    @keyframes pulse{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.1)}}
+  </style>
 </head>
 <body>
 
-    <div class="sobre" id="sobreTarjeta">
+  <div class="live">EN VIVO 24/7 ●</div>
+  <div class="clock" id="clock"></div>
+  <div class="views">Espectadores: <span id="views">73.892</span></div>
+  <div class="title" id="title">Cargando transmisión en vivo...</div>
 
-        <div class="tapa-superior"></div>
+  <button id="playBtn">PLAY</button>
 
-        <div class="carta">
-            <p class="titulo-cerrado">Para mi flancito de coco</p>
-            <p class="titulo-cerrado subtitulo">🤍</p>
+  <video id="video" playsinline preload="auto"></video>
 
-            <div class="contenido-carta">
-                <p class="titulo-abierto">Para mi flancito de coco:</p>
+  <script>
+    // === TU PLAYLIST (poné 30–60 temas acá y es indetectable) ===
+    const videos = [
+      {url: "https://ia800506.us.archive.org/31/items/x-2-download.app-ulises-bueno-rusherking-big-one-mentiras-crossover/X2Download.app-UlisesBueno%2CRusherking%2CBigOne-Mentiras_CROSSOVER.mp4", titulo: "Ulises Bueno, Rusherking, Big One - Mentiras"},
+      {url: "https://ia800508.us.archive.org/28/items/y-2mate.com-urba-y-rome-x-alex-rose-x-lyanno-publico-video-lyric-720p/y2mate.com%20-%20Urba%20y%20Rome%20x%20Alex%20Rose%20x%20Lyanno%20%20P%C3%BAblico%20Video%20Lyric_720p.mp4", titulo: "Urba y Rome, Alex Rose, Lyanno - Público"},
+      {url: "https://ia600507.us.archive.org/20/items/y-2mate.com-cabana-el-jordan-23-ft-ugly-duck-prod-by-nes-on-the-shet-video-official-720p/y2mate.com%20-%20CABANA%20%20El%20Jordan%2023%20Ft%20Ugly%20Duck%20Prod%20By%20NesOnTheShet%20Video%20Official_720p.mp4", titulo: "El Jordan 23 ft. Ugly Duck - Cabana"},
+      {url: "https://ia801009.us.archive.org/16/items/roa-hades-66-ppc-official-video/ROA%2C%20Hades66%20-%20PPC%20%28Official%20Video%29.ia.mp4", titulo: "ROA, Hades66 - PPC"},
+      // PEGÁ TODOS LOS DEMÁS ACÁ
+    ];
 
-                <p class="mensaje">
-                    Desde el día que te conocí, todo empezó a tener otro sentido.
-                    No sé si fue tu risa, tu forma de mirarme o cómo me hablas, pero desde ese momento supe que quería quedarme, sin importar lo que venga.
-                </p>
-                
-                <p class="mensaje">
-                    Contigo todo se siente diferente, más tranquilo, más real.
-                    No busco algo perfecto ni de película, busco eso que tenemos, algo que se construye despacito, sin apuro, pero con ganas de verdad.
-                </p>
+    const video = document.getElementById("video");
+    const playBtn = document.getElementById("playBtn");
+    video.controls = false;
 
-                <p class="mensaje">
-                    A veces no sé cómo explicarte lo que me haces sentir, solo sé que desde que llegaste, mis días son menos vacíos.
-                    Cada detalle, cada letra, cada plan que pienso… tiene un pedazo de ti.
-                </p>
+    let ultimo = -1;
 
-                <p class="mensaje">
-                    El 23 ya era mi número, pero ahora lleva tu nombre, tu risa y todo lo que me haces sentir.
-                </p>
-                
-                <p class="mensaje">
-                    No sé qué pasará más adelante, pero si me preguntas, quiero seguir con esto, contigo.
-                </p>
+    // Aleatorio REAL (puede repetir, como en la radio de verdad)
+    function temaRandom() {
+      let i;
+      do { i = Math.floor(Math.random() * videos.length); }
+      while (i === ultimo && videos.length > 1);
+      ultimo = i;
+      return i;
+    }
 
-                <p class="contador" id="contadorTiempo">
-                    Calculando el tiempo de nuestro amor...
-                </p>
+    function reproducir() {
+      const i = temaRandom();
+      video.src = videos[i].url;
+      document.getElementById("title").textContent = "Ahora: " + videos[i].titulo;
 
-                <p class="firma">
-                    — Maurick
-                </p>
-            </div>
-        </div>
+      video.onloadedmetadata = () => {
+        video.currentTime = 0;
+        video.play();
+      };
 
-        <div class="base-sobre"></div>
-    </div>
+      video.onended = reproducir;
+    }
 
-    <audio id="musicaFondo" loop>
-        <source src="https://qu.ax/iPjOD.mp3" type="audio/mpeg">
-        Tu navegador no soporta el elemento de audio.
-    </audio>
+    playBtn.onclick = playBtn.ontouchstart = () => {
+      playBtn.style.display = "none";
+      video.muted = false;
+      video.volume = 1;
+      reproducir();
+    };
 
-    <script>
-        // =======================================================
-        // 1. CONFIGURACIÓN DEL CONTADOR (29 de junio de 2025)
-        // =======================================================
-        const fechaInicio = new Date("June 29, 2025 00:00:00"); 
+    // Reloj y viewers ultra reales
+    setInterval(() => {
+      document.getElementById("clock").textContent = new Date().toLocaleTimeString("es-ES", {hour12:false});
+    }, 1000);
 
-        function actualizarContador() {
-            const ahora = new Date();
-            const diferencia = ahora - fechaInicio;
+    setInterval(() => {
+      const h = new Date().getHours();
+      let base = (h >= 21 || h <= 8) ? 95000 : 35000;
+      const variacion = Math.floor(Math.random() * 60000) - 30000;
+      const viewers = Math.max(25000, base + variacion);
+      document.getElementById("views").textContent = viewers.toLocaleString("es-ES");
+    }, 20000);
 
-            if (diferencia < 0) {
-                document.getElementById('contadorTiempo').innerHTML = "¡Nuestro amor está por comenzar!";
-                return;
-            }
-
-            const segundosTotales = Math.floor(diferencia / 1000);
-            
-            const segundos = segundosTotales % 60;
-            const minutosTotales = Math.floor(segundosTotales / 60);
-            const minutos = minutosTotales % 60;
-            const horasTotales = Math.floor(minutosTotales / 60);
-            const horas = horasTotales % 24;
-            const dias = Math.floor(horasTotales / 24);
-
-            const textoContador = `
-                Mi amor por ti comenzó hace...<br>
-                **${dias}** días, 
-                **${horas}** horas, 
-                **${minutos}** minutos, 
-                **${segundos}** segundos
-            `;
-
-            document.getElementById('contadorTiempo').innerHTML = textoContador;
-        }
-
-        // Inicia el contador y lo actualiza cada segundo
-        actualizarContador();
-        setInterval(actualizarContador, 1000);
-
-
-        // =======================================================
-        // 2. REPRODUCCIÓN DE MÚSICA
-        // =======================================================
-        const sobreTarjeta = document.getElementById('sobreTarjeta');
-        const musicaFondo = document.getElementById('musicaFondo');
-        let musicaReproducida = false;
-
-        // Reproduce la música al pasar el mouse sobre el sobre
-        sobreTarjeta.addEventListener('mouseenter', () => {
-            if (!musicaReproducida) {
-                musicaFondo.play()
-                    .then(() => {
-                        console.log("Música iniciada correctamente.");
-                        musicaReproducida = true;
-                    })
-                    .catch(error => {
-                        console.error("Error al intentar reproducir la música. Es posible que el navegador requiera una interacción del usuario antes de reproducir audio.");
-                    });
-            }
-        });
-        
-        // Intento de reproducción de audio al hacer click/tap para compatibilidad móvil
-        document.addEventListener('click', () => {
-            if (!musicaReproducida) {
-                musicaFondo.play()
-                    .then(() => {
-                        console.log("Música iniciada correctamente después de un click.");
-                        musicaReproducida = true;
-                    })
-                    .catch(error => {
-                        // Silenciosamente ignora el error si no puede reproducir
-                    });
-            }
-        }, { once: true }); 
-    </script>
+  </script>
 </body>
 </html>
